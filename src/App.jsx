@@ -1,10 +1,22 @@
-import React from 'react'
-import NavBar from './components/Navbar.jsx'
+import React, {useEffect, useState} from 'react'
+import { Routes, Route } from 'react-router-dom'
+import Main from './frontend/components/Main.jsx';
+import axios from 'axios';
 
+import LogIn from './frontend/components/LogIn.jsx';
+import Register from './frontend/components/Register.jsx';
 const App = () => {
-  return (
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  
+    return (
     <div className = "bg-red-400">
-        <NavBar></NavBar>
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="/login" element={<LogIn />} />
+          <Route path="/register" element={<Register />}/>
+        </Routes>
     </div>
   )
 }
