@@ -4,10 +4,16 @@ import cors from 'cors';
 import axios from 'axios';
 // import path, {dirname} from 'path';
 // import { fileURLToPath } from 'url';
-import { client_id, redirect_uri,client_secret } from './API/keys.js'; // shouldnt this be in env file?
 import querystring from 'querystring';
 import authRoutes from './routes/authRoutes.js';
-import todoRoutes from './routes/todoRoutes.js'; 
+import todoRoutes from './routes/todoRoutes.js';
+
+import dotenv from 'dotenv';
+dotenv.config();
+
+const client_id = process.env.SPOTIFY_CLIENT_ID;
+const redirect_uri = process.env.SPOTIFY_REDIRECT_URI;
+const client_secret = process.env.SPOTIFY_CLIENT_SECRET;  
 const app = express();
 const PORT = process.env.PORT || 5000;
 
